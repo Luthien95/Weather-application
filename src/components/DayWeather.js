@@ -1,4 +1,5 @@
 import React from "react";
+import GetDate from "./Date.js";
 
 class DayWeather extends React.Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class DayWeather extends React.Component {
 
         array = this.state.array
           .filter(a => Date.parse(a.dt_txt) <= date2)
-          .map(item => {
+          .map((item, index) => {
             var date = new Date(Date.parse(item.dt_txt));
             var hours = date.getHours();
             var minutes = date.getMinutes();
@@ -34,9 +35,17 @@ class DayWeather extends React.Component {
             minutes = minutes < 10 ? "0" + minutes : minutes;
             var strTime = hours + ampm;
 
+            var className =
+              index === 0
+                ? "day-weather__item day-weather__item--active"
+                : "day-weather__item";
+
             return (
-              <li key={item}>
-                {Math.round(item.main.temp)}&deg;C, {strTime}
+              <li key={index} className={className}>
+                {strTime}
+                <span className="day-weather__temp">
+                  {Math.round(item.main.temp)}&deg;C
+                </span>
               </li>
             );
           });
@@ -44,9 +53,9 @@ class DayWeather extends React.Component {
     }
 
     return (
-      <div>
-        <h1>Pogoda godzinowa</h1>
-        <ul>{array}</ul>
+      <div className="weather">
+        <GetDate />
+        <ul className="day-weather">{array}</ul>
       </div>
     );
   }

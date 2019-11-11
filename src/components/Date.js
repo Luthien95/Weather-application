@@ -33,8 +33,8 @@ const Form = props => {
   var day = days[now.getDay()];
 
   return (
-    <p>
-      {day},{day2},{monthNames[month]}
+    <p className="day-weather__date">
+      {day}, {day2} {monthNames[month]}
     </p>
   );
 };

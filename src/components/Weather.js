@@ -2,20 +2,27 @@ import React from "react";
 
 const Weather = props => {
   return (
-    <div>
+    <div className="today-weather">
       {props.city && props.country && (
         <p>
-          Location: {props.city},{props.country}
+          {props.city}, {props.country}
         </p>
       )}
-      {props.temperature && (
-        <p>Temperature: {Math.round(props.temperature)} C</p>
+      {props.description && (
+        <p className="today-weather__conditions">{props.description}</p>
       )}
-      {props.humidity && <p>Humidity: {props.humidity}</p>}
-      {props.description && <p>Conditions: {props.description}</p>}
+      {props.temperature && (
+        <p className="today-weather__temp">
+          {Math.round(props.temperature)}&deg;C
+        </p>
+      )}
       {props.error && <p>{props.error}</p>}
     </div>
   );
 };
 
 export default Weather;
+
+/*
+ {props.humidity && <p>Humidity: {props.humidity}</p>}
+ */

@@ -1,11 +1,53 @@
 body {
   overflow: hidden;
-  margin: 0; }
+  margin: 0;
+  color: white;
+  font-family: Montserrat; }
+
+ul {
+  list-style: none;
+  padding: 0; }
 
 .weather-application {
   width: 100vw;
   height: 100vh;
-  background-image: url("https://images.unsplash.com/photo-1491002052546-bf38f186af56?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1083&q=80");
+  background-image: url("./../../images/background-1.jpg");
   background-size: cover; }
   .weather-application h1 {
+    margin: 0; }
+
+.weather {
+  width: 90%;
+  margin-left: 5%;
+  position: absolute;
+  bottom: 60px; }
+
+.day-weather {
+  display: flex;
+  align-items: flex-end; }
+  .day-weather__item {
+    width: 13%;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 35px; }
+    .day-weather__item--active {
+      box-shadow: 0px 0px 5px 5px #1e1e1e5c;
+      width: 15%; }
+      .day-weather__item--active .day-weather__temp {
+        margin-top: 50px;
+        font-size: 3rem; }
+  .day-weather__temp {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-top: 20px; }
+  .day-weather__date {
+    margin-bottom: 40px; }
+
+.today-weather {
+  margin-left: 5%; }
+  .today-weather__conditions {
+    text-transform: capitalize; }
+  .today-weather__temp {
+    font-size: 4rem;
+    font-weight: bold;
     margin: 0; }

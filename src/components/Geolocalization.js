@@ -71,10 +71,6 @@ class Geolocalization extends React.Component {
                 Get Position
               </button>
               {error && <div>{error.message}</div>}
-              <pre>
-                latitude: {latitude}
-                longitude: {longitude}
-              </pre>
               <p>
                 {this.state.city}, {this.state.country}
               </p>
