@@ -60,9 +60,6 @@ class Geolocalization extends React.Component {
 
     cookie.save("city", city, { path: "/" });
     cookie.save("country", country, { path: "/" });
-
-    //this.props.getWeatherFromLocalization(city, country);
-    console.log(city);
   }
 
   render() {
@@ -105,10 +102,7 @@ class Geolocalization extends React.Component {
         />
         <p>{this.state.address}</p>
         {this.state.formActive ? (
-          <Form
-            getWeather={this.props.getWeather}
-            saveInputPosition={this.saveInputPosition}
-          />
+          <Form saveInputPosition={this.saveInputPosition} />
         ) : null}
       </div>
     );

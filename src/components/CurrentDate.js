@@ -1,9 +1,9 @@
 import React from "react";
 
-const Form = props => {
-  const day2 = new Date().getDate();
-  const month = new Date().getMonth();
-  var now = new Date();
+const CurrentDate = props => {
+  const currentDay = new Date().getDate();
+  const currentMonth = new Date().getMonth();
+  var currentDate = new Date();
 
   const monthNames = [
     "January",
@@ -20,7 +20,7 @@ const Form = props => {
     "December"
   ];
 
-  var days = [
+  var daysOfTheWeek = [
     "Sunday",
     "Monday",
     "Tuesday",
@@ -30,13 +30,13 @@ const Form = props => {
     "Saturday"
   ];
 
-  var day = days[now.getDay()];
+  var currentDayOfTheWeek = daysOfTheWeek[currentDate.getDay()];
 
   return (
     <p className="day-weather__date">
-      {day}, {day2} {monthNames[month]}
+      {currentDayOfTheWeek}, {currentDay} {monthNames[currentMonth]}
     </p>
   );
 };
 
-export default Form;
+export default CurrentDate;

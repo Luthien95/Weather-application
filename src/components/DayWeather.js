@@ -1,5 +1,5 @@
 import React from "react";
-import GetDate from "./Date.js";
+import CurrentDate from "./CurrentDate";
 
 class DayWeather extends React.Component {
   constructor(props) {
@@ -54,7 +54,7 @@ class DayWeather extends React.Component {
 
     return (
       <div className="weather">
-        <GetDate />
+        <CurrentDate />
         <ul className="day-weather">{array}</ul>
       </div>
     );

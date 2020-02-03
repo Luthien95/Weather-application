@@ -9,9 +9,12 @@ class Form extends React.Component {
     };
   }
   render() {
-    const { getWeather, saveInputPosition } = this.props;
+    const { saveInputPosition } = this.props;
     return (
-      <form onSubmit={getWeather} className="position-form">
+      <form
+        onSubmit={saveInputPosition(this.state.city, this.state.country)}
+        className="position-form"
+      >
         <input
           type="text"
           name="city"
@@ -27,12 +30,6 @@ class Form extends React.Component {
           onChange={event => this.setState({ country: event.target.value })}
         />
         <button className="position-form__button">Get Weather</button>
-        <button
-          className="position-form__button position-form__button--blank"
-          onClick={saveInputPosition(this.state.city, this.state.country)}
-        >
-          Save Position
-        </button>
       </form>
     );
   }
