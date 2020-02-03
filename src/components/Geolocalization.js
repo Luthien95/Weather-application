@@ -2,6 +2,9 @@ import React from "react";
 import Geocode from "react-geocode";
 import cookie from "react-cookies";
 import Geolocation from "react-geolocation";
+import Form from "./Form";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 
 class Geolocalization extends React.Component {
   constructor(props) {
@@ -9,7 +12,8 @@ class Geolocalization extends React.Component {
     this.state = {
       address: "",
       city: " ",
-      country: " "
+      country: " ",
+      formActive: false
     };
 
     this.reverseGeocode = this.reverseGeocode.bind(this);
@@ -50,9 +54,20 @@ class Geolocalization extends React.Component {
       });
   }
 
+  saveInputPosition(city, country) {
+    cookie.remove("city", { path: "/" });
+    cookie.remove("country", { path: "/" });
+
+    cookie.save("city", city, { path: "/" });
+    cookie.save("country", country, { path: "/" });
+
+    //this.props.getWeatherFromLocalization(city, country);
+    console.log(city);
+  }
+
   render() {
     return (
-      <div>
+      <div className="change-locate">
         <Geolocation
           onSuccess={console.log}
           render={({
@@ -62,22 +77,39 @@ class Geolocalization extends React.Component {
             getCurrentPosition
           }) => (
             <div>
+              <FontAwesomeIcon
+                icon={faMapMarkerAlt}
+                className="change-locate__icon"
+              />
               <button
                 onClick={() => {
                   getCurrentPosition();
                   this.reverseGeocode(latitude, longitude);
                 }}
+                className="change-locate__button"
               >
                 Get Position
+              </button>{" "}
+              |{" "}
+              <button
+                className="change-locate__button"
+                onClick={e =>
+                  this.setState({ formActive: !this.state.formActive })
+                }
+              >
+                Pick Position
               </button>
               {error && <div>{error.message}</div>}
-              <p>
-                {this.state.city}, {this.state.country}
-              </p>
             </div>
           )}
         />
         <p>{this.state.address}</p>
+        {this.state.formActive ? (
+          <Form
+            getWeather={this.props.getWeather}
+            saveInputPosition={this.saveInputPosition}
+          />
+        ) : null}
       </div>
     );
   }

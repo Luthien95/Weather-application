@@ -8,6 +8,9 @@ ul {
   list-style: none;
   padding: 0; }
 
+p {
+  margin: 0; }
+
 .weather-application {
   width: 100vw;
   height: 100vh;
@@ -43,11 +46,45 @@ ul {
   .day-weather__date {
     margin-bottom: 40px; }
 
-.today-weather {
-  margin-left: 5%; }
-  .today-weather__conditions {
-    text-transform: capitalize; }
-  .today-weather__temp {
-    font-size: 4rem;
-    font-weight: bold;
-    margin: 0; }
+.today-weather__conditions {
+  text-transform: capitalize; }
+
+.today-weather__temp {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 0; }
+
+.weather-application__text-container {
+  margin-left: 100px;
+  padding-top: 100px; }
+
+.change-locate__button {
+  border: none;
+  background: none;
+  color: white; }
+  .change-locate__button:hover {
+    cursor: pointer; }
+
+.change-locate .position-form {
+  margin-top: 10px; }
+  .change-locate .position-form__input {
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid white;
+    padding: 5px 10px;
+    margin-right: 10px;
+    color: white; }
+    .change-locate .position-form__input::placeholder {
+      color: white; }
+  .change-locate .position-form__button {
+    border: none;
+    padding: 5px 10px;
+    color: black;
+    font-weight: 600;
+    margin-right: 10px; }
+    .change-locate .position-form__button--blank {
+      background: none;
+      border: 1px solid white;
+      color: white;
+      font-weight: 500; }
+    .change-locate .position-form__button:hover {
+      cursor: pointer; }

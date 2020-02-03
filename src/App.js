@@ -1,7 +1,6 @@
 import React from "react";
 import "./style/css/style.css";
 import Titles from "./components/Titles";
-import Form from "./components/Form";
 import Geolocalization from "./components/Geolocalization";
 import Weather from "./components/Weather";
 import DayWeather from "./components/DayWeather";
@@ -70,17 +69,20 @@ class App extends React.Component {
   render() {
     return (
       <div className="weather-application">
-        <Geolocalization
-          getWeatherFromLocalization={this.getWeatherFromLocalization}
-        />
-        <Weather
-          temperature={this.state.temperature}
-          city={this.state.city}
-          country={this.state.country}
-          humidity={this.state.humidity}
-          description={this.state.description}
-          error={this.state.error}
-        />
+        <div className="weather-application__text-container">
+          <Weather
+            temperature={this.state.temperature}
+            city={this.state.city}
+            country={this.state.country}
+            humidity={this.state.humidity}
+            description={this.state.description}
+            error={this.state.error}
+          />
+          <Geolocalization
+            getWeatherFromLocalization={this.getWeatherFromLocalization}
+            getWeather={this.getWeather}
+          />
+        </div>
         <DayWeather items={data2.list} />
       </div>
     );
