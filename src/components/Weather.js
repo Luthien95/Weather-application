@@ -1,4 +1,5 @@
 import React from "react";
+import WeatherIcon from "./WeatherIcon";
 
 const Weather = props => {
   return (
@@ -8,6 +9,7 @@ const Weather = props => {
           {props.city}, {props.country}
         </p>
       )}
+      <WeatherIcon iconName={props.description} />
       {props.description && (
         <p className="today-weather__conditions">{props.description}</p>
       )}
