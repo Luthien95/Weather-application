@@ -1,5 +1,6 @@
 import React from "react";
 import CurrentDate from "./CurrentDate";
+import Slider from "react-slick";
 
 class DayWeather extends React.Component {
   constructor(props) {
@@ -18,13 +19,45 @@ class DayWeather extends React.Component {
   render() {
     let array = [];
 
+    var settings = {
+      dots: false,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 7,
+      slidesToScroll: 4,
+      initialSlide: 0,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    };
+
     if (this.state.array.length > 1) {
       {
         var date2 = new Date();
         date2.setDate(date2.getDate() + 1);
 
         array = this.state.array
-          .filter(a => Date.parse(a.dt_txt) <= date2)
+          // .filter(a => Date.parse(a.dt_txt) <= date2)
           .map((item, index) => {
             var date = new Date(Date.parse(item.dt_txt));
             var hours = date.getHours();
@@ -55,7 +88,9 @@ class DayWeather extends React.Component {
     return (
       <div className="weather">
         <CurrentDate />
-        <ul className="day-weather">{array}</ul>
+        <Slider {...settings} className="day-weather">
+          {array}
+        </Slider>
       </div>
     );
   }

@@ -27,30 +27,38 @@ p {
 
 .day-weather {
   display: flex;
-  align-items: flex-end; }
+  align-items: flex-end;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%; }
   .day-weather__item {
     width: 13%;
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     padding: 25px 35px; }
     .day-weather__item--active {
-      box-shadow: 0px 0px 5px 5px #1e1e1e5c;
-      width: 15%; }
-      .day-weather__item--active .day-weather__temp {
-        margin-top: 50px;
-        font-size: 3rem; }
+      background: rgba(255, 255, 255, 0.4); }
   .day-weather__temp {
     font-size: 2.5rem;
     font-weight: bold;
     margin-top: 20px; }
   .day-weather__date {
     margin-bottom: 40px; }
+  .day-weather .slick-list,
+  .day-weather .slick-track {
+    display: flex;
+    width: 100%;
+    flex-direction: row; }
+  .day-weather .slick-arrow {
+    position: absolute;
+    bottom: -30px; }
+  .day-weather .slick-next {
+    left: 100px; }
 
 .today-weather__conditions {
   text-transform: capitalize; }
 
 .today-weather__temp {
-  font-size: 4rem;
+  font-size: 4.5rem;
   font-weight: bold;
   margin: 0; }
 

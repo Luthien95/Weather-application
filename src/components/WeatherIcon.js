@@ -21,7 +21,7 @@ class WeatherIcon extends React.Component {
       const iconNameCammelCase =
         changedIconName.substr(0, 1).toLowerCase() + changedIconName.substr(1);
 
-      const imageUrl = `../images/weather-icons/${iconNameCammelCase}.png`;
+      const imageUrl = require(`../images/weather-icons/${iconNameCammelCase}.png`);
 
       if (this.state.failed) return null;
 
