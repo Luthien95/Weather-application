@@ -24,7 +24,3 @@ const Weather = props => {
 };
 
 export default Weather;
-
-/*
- {props.humidity && <p>Humidity: {props.humidity}</p>}
- */

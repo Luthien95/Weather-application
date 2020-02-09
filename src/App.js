@@ -88,8 +88,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-/*
-<Titles />
-        <Form getWeather={this.getWeather} />
-        */

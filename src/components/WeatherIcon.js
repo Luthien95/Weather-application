@@ -14,21 +14,26 @@ class WeatherIcon extends React.Component {
   render() {
     const iconName = this.props.iconName;
 
-    if (iconName) {
-      const changedIconName = iconName.replace(/[-_\s.]+(.)?/g, (_, c) =>
-        c ? c.toUpperCase() : ""
-      );
-      const iconNameCammelCase =
-        changedIconName.substr(0, 1).toLowerCase() + changedIconName.substr(1);
+    const iconNames = ["brokenClouds"];
+    let image;
 
-      const imageUrl = require(`../images/weather-icons/${iconNameCammelCase}.png`);
+    const sth = iconNames.map(icon => {
+      if (iconName == icon) {
+        const changedIconName = iconName.replace(/[-_\s.]+(.)?/g, (_, c) =>
+          c ? c.toUpperCase() : ""
+        );
+        const iconNameCammelCase =
+          changedIconName.substr(0, 1).toLowerCase() +
+          changedIconName.substr(1);
 
-      if (this.state.failed) return null;
+        const imageUrl = require(`../images/weather-icons/${iconNameCammelCase}.png`);
+        image = <img src={imageUrl} alt={iconName} onError={this._onError} />;
+      } else {
+        image = null;
+      }
+    });
 
-      return <img src={imageUrl} alt={iconName} onError={this._onError} />;
-    } else {
-      return null;
-    }
+    return image;
   }
 }
 

@@ -1,6 +1,33 @@
 import React from "react";
 import CurrentDate from "./CurrentDate";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronRight,
+  faChevronLeft
+} from "@fortawesome/free-solid-svg-icons";
 import Slider from "react-slick";
+
+function SampleNextArrow(props) {
+  const { className, onClick } = props;
+  return (
+    <FontAwesomeIcon
+      className={className}
+      icon={faChevronRight}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, onClick } = props;
+  return (
+    <FontAwesomeIcon
+      className={className}
+      icon={faChevronLeft}
+      onClick={onClick}
+    />
+  );
+}
 
 class DayWeather extends React.Component {
   constructor(props) {
@@ -26,6 +53,8 @@ class DayWeather extends React.Component {
       slidesToShow: 7,
       slidesToScroll: 4,
       initialSlide: 0,
+      nextArrow: <SampleNextArrow />,
+      prevArrow: <SamplePrevArrow />,
       responsive: [
         {
           breakpoint: 1024,

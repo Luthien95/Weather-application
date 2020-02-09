@@ -100,7 +100,6 @@ class Geolocalization extends React.Component {
             </div>
           )}
         />
-        <p>{this.state.address}</p>
         {this.state.formActive ? (
           <Form saveInputPosition={this.saveInputPosition} />
         ) : null}

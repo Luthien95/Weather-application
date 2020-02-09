@@ -3,10 +3,13 @@ body
     margin: 0
     color: white
     font-family: Montserrat
+    width: 100vw
+    height: 100vh
 ul
     list-style: none
     padding: 0
 
+h1,
 p
     margin: 0
 
@@ -15,8 +18,6 @@ p
     height: 100vh
     background-image: url("./../../images/background-1.jpg")
     background-size: cover
-    h1
-        margin: 0
 
 .weather
     width: 90%
@@ -32,9 +33,6 @@ p
         width: 13%
         display: flex !important
         flex-direction: column
-        padding: 25px 35px
-        &--active
-            background: rgba(255,255,255,.4)
     &__temp
         font-size: 2.5rem
         font-weight: bold
@@ -46,11 +44,21 @@ p
         display: flex
         width: 100%
         flex-direction: row
+        .slick-slide
+            padding: 25px 35px
+            &:first-of-type
+                background: rgba(255,255,255,.4)
     .slick-arrow
         position: absolute
-        bottom: -30px
+        top: 0
+        right: 40px
+        transition-duration: .5s
+        &:hover
+            transform: scale(1.2)
+            cursor: pointer
+            transition-duration: .5s
     .slick-next
-        left: 100px
+        right: 0
 
 .today-weather
     &__conditions
